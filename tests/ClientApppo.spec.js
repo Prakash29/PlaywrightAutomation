@@ -11,11 +11,9 @@ test('client app login', async ({ page }) => {
     const loginPage=new LoginPage(page);
   loginPage.goTo();
   loginPage.validLogin(username,password);
-  
-    await page.waitForLoadState('networkidle');
-
-    await page.locator(".card-body b").first().waitFor();
-    const titles = await page.locator(".card-body b").allTextContents();
+  await page.waitForLoadState('networkidle');
+  await page.locator(".card-body b").first().waitFor();
+  const titles = await page.locator(".card-body b").allTextContents();
     
     console.log(titles);
    
